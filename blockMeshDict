@@ -9,7 +9,7 @@ convertToMeters 1;
 
 vertices
 (
-	(-5 0 0)
+	(-5 0 0)	// y and z coords are flipped throughout, fix
 	(18 0 0)
 	(18 5 0)
 	(-5 5 0)
