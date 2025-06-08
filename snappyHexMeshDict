@@ -79,10 +79,8 @@ addLayersControls
 	}
 
 	relativeSizes true;
-	expansionRatio 1.0;
-	finalLayerThickness 1.0;
-	//firstLayerThickness 0.3;
-	//thickness 0.3;
+	expansionRatio 1.5;
+	finalLayerThickness 0.8;
 	minThickness 0.1;
 	nGrow 1;
 	featureAngle 100;
