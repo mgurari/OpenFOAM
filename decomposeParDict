@@ -5,6 +5,6 @@ FoamFile
 	object decomposeParDict;
 }
 
-numberOfSubdomains 6;
+numberOfSubdomains 6; //number of processor cores, use >> mpirun -np 6 foamRun -parallel
 
 method scotch;
