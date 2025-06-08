@@ -1,0 +1,40 @@
+FoamFile
+{
+	format ascii;
+	class volScalarField;
+	object p;
+}
+
+dimensions [0 2 -2 0 0 0 0];
+
+internalField uniform 0;
+
+boundaryField
+{
+	inlet
+	{
+		type zeroGradient;
+	}
+
+	freestream
+	{
+		type freestreamPressure;
+		freestreamValue uniform 0;
+		value uniform 0;
+	}
+
+	bottom
+	{
+		type zeroGradient;
+	}
+
+	body
+	{
+		type zeroGradient;
+	}
+
+	center
+	{
+		type symmetryPlane;
+	}
+}
