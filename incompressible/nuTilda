@@ -10,7 +10,20 @@ internalField   uniform 1e-5;
 boundaryField
 
 {
-    inlet  { type fixedValue; value uniform 1e-5; }
-    outlet { type zeroGradient; }
-    walls  { type fixedValue; value uniform 0; }
+    inlet  
+	{ 
+		type fixedValue; 
+		value uniform 1e-5; 
+	}
+
+    outlet 
+	{ 
+		type zeroGradient; 
+	}
+    walls  
+
+	{ 
+		type fixedValue; 
+		value uniform 0; 
+	}
 }
