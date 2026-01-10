@@ -13,7 +13,9 @@ boundaryField
 {
 	inlet
 	{
-		type zeroGradient;
+		type freestreamPressure;
+		freestreamValue uniform 0;
+		value uniform 0;
 	}
 
 	freestream
