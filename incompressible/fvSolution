@@ -9,8 +9,8 @@ solvers
 {
 	p
 	{
-		solver GAMG;
-		smoother GaussSeidel;
+		solver PCG;
+		preconditioner FDIC;
 		tolerance 1e-6;
 		relTol 0.1;
 	}
@@ -26,7 +26,7 @@ solvers
 		$p;
 	}
 
-	"(U|k|omega|epsilon)"
+	"(U|nuTilda)"
 	{
 		solver PBiCGStab;
 		preconditioner DILU;
@@ -34,7 +34,7 @@ solvers
 		relTol 0.1;
 	}
 
-	"(U|k|omega|epsilon)Final"
+	"(U|nuTilda)Final"
 	{
 		$U;
 		relTol 0;
@@ -45,9 +45,9 @@ SIMPLE
 {
 	residualControl
 	{
-		p 1e-4;
-		U 1e-4;
-		"(k|omega|epsilon)" 1e-4;
+		p 1e-5;
+		U 1e-5;
+		nuTilda 1e-5;
 	}
 
 	nNonOrthogonalCorrectors 0;
@@ -59,9 +59,9 @@ PIMPLE
 {
 	residualControl
 	{
-		p 1e-4;
-		U 1e-4;
-		"(k|omega|epsilon)" 1e-4;
+		p 1e-5;
+		U 1e-5;
+		nuTilda 1e-5;
 	}
 
 	transonic no;
@@ -79,12 +79,12 @@ relaxationFactors
 {
 	fields
 	{
-		p 0.3;
+		p 0.6;
 	}
 	
 	equations
 	{
 		U 0.7;
-		"(k|omega|epsilon)" 0.7;
+		nuTilda 0.7;
 	}
 }
