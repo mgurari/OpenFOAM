@@ -14,8 +14,8 @@ boundaryField
 {
 	inlet
 	{
-		type fixedValue;
-		value uniform ($Uinlet 0 0);
+		type freestreamVelocity;
+		freestreamValue uniform ($Uinlet 0 0);
 	}
 
 	freestream
