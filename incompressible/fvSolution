@@ -12,7 +12,7 @@ solvers
 		solver PCG;
 		preconditioner FDIC;
 		tolerance 1e-6;
-		relTol 0.1;
+		relTol 0.01;
 	}
 
 	pFinal
@@ -26,15 +26,15 @@ solvers
 		$p;
 	}
 
-	"(U|nuTilda)"
+	"(U|k|omega|epsilon)"
 	{
 		solver PBiCGStab;
 		preconditioner DILU;
 		tolerance 1e-6;
-		relTol 0.1;
+		relTol 0.01;
 	}
 
-	"(U|nuTilda)Final"
+	"(U|k|omega|epsilon)Final"
 	{
 		$U;
 		relTol 0;
@@ -47,7 +47,7 @@ SIMPLE
 	{
 		p 1e-5;
 		U 1e-5;
-		nuTilda 1e-5;
+		"(k|omega|epsilon)" 1e-5;
 	}
 
 	nNonOrthogonalCorrectors 0;
@@ -61,7 +61,7 @@ PIMPLE
 	{
 		p 1e-5;
 		U 1e-5;
-		nuTilda 1e-5;
+		"(k|omega|epsilon)" 1e-5;
 	}
 
 	transonic no;
@@ -79,12 +79,12 @@ relaxationFactors
 {
 	fields
 	{
-		p 0.6;
+		p 0.5;
 	}
 	
 	equations
 	{
 		U 0.7;
-		nuTilda 0.7;
+		"(k|omega|epsilon)" 0.7;
 	}
 }

@@ -5,7 +5,7 @@ FoamFile
 	object U;
 }
 
-Uinlet 50;
+Uinlet 20;
 dimensions [0 1 -1 0 0 0 0];
 
 internalField uniform ($Uinlet 0 0);
@@ -22,11 +22,6 @@ boundaryField
 	{
 		type freestreamVelocity;
 		freestreamValue uniform ($Uinlet 0 0);
-	}
-
-	bottom
-	{
-		type slip;
 	}
 
 	body
