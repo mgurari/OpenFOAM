@@ -1,0 +1,106 @@
+FoamFile
+{
+	format ascii;
+	class dictionary;
+	object snappyHexMeshDict;
+}
+
+castellatedMesh true;
+snap true;
+addLayers true;
+mergeTolerance 1e-6;
+debug 0;
+
+geometry
+{
+	body
+	{
+		type triSurfaceMesh;
+		file "cansat.stl";
+	}
+};
+
+castellatedMeshControls
+{
+	locationInMesh (-1 1 1.1);
+	maxLocalCells 800000;
+	maxGlobalCells 8000000;
+	minRefinementCells 10;
+	maxLoadUnbalance 0.5;
+	nCellsBetweenLevels 15;
+	resolveFeatureAngle 30;
+	allowFreeStandingZoneFaces false;
+
+	refinementSurfaces
+	{
+		body
+		{
+			level (4 6);
+		}
+	}
+
+} 
+
+snapControls
+{
+	nSmoothPatch 3;
+	tolerance 1;
+	nSolveIter 100;
+	nRelaxIter 5;
+	nFeatureSnapIter 20;
+	implicitFeatureSnap false;
+	explicitFeatureSnap false;
+	multiRegionFeatureSnap false;
+}
+
+addLayersControls
+{
+	layers
+	{
+		body
+		{
+			nSurfaceLayers 8;
+		}
+	}
+
+	relativeSizes true;
+	expansionRatio 1.2;
+	firstLayerThickness 1e-1;
+	minThickness 1e-1;
+	nGrow 0;
+	featureAngle 120;
+	maxFaceThicknessRatio 0.5;
+	nSmoothSurfaceNormals 1;
+	nSmoothThickness 2;
+	minMedialAxisAngle 90;
+	maxThicknessToMedialRatio 0.3;
+	nSmoothNormals 3;
+	nRelaxIter 5;
+	nBufferCellsNoExtrude 0;
+	nLayerIter 50;
+	nRelaxedIter 20;
+}
+
+meshQualityControls
+{
+	maxNonOrtho 65;
+	maxBoundarySkewness 20;
+	maxInternalSkewness 4;
+	maxConcave 80;
+	minFlatness -1;
+	minVol -1e13;
+	minTetQuality -1e13;
+	minArea 0;
+	minTwist 0.05;
+	minDeterminant 0.001;
+	minFaceWeight 0.05;
+	minVolRatio 0.01;
+	minTriangleTwist -1;
+	nSmoothScale 4;
+	errorReduction 0.75;
+	relaxed
+	{
+		maxNonOrtho 75;
+	}
+}	
+
