@@ -1,0 +1,20 @@
+FoamFile
+{
+	format ascii;
+	class dictionary;
+	object surfaceFeaturesDict;
+}
+
+surface1
+{
+	surfaces
+	(
+		"capstone.stl"
+	);
+
+	featureAngle 50;
+	includedAngle 160;
+	writeFeatureMesh true;
+	writeEdges true;
+	writeObj yes;
+}

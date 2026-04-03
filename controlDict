@@ -1,0 +1,71 @@
+FoamFile
+{
+	format ascii;
+	class dictionary;
+	object controlDict;
+}
+
+application foamRun;
+solver incompressibleFluid;
+startFrom latestTime;
+startTime 0;
+stopAt endTime;
+endTime 1000;
+deltaT 1.5e-3;
+adjustTimeStep yes;
+maxCo 8;
+writeControl timeStep;
+writeInterval 50;
+purgeWrite 0;
+writeFormat ascii;
+writePrecision 6;
+writeCompression off;
+timeFormat general;
+timePrecision 6;
+runTimeModifiable true;
+		
+functions
+{
+	forces
+	{
+		type forces;
+		libs ("libforces.so");
+		patches (body);
+		p p;
+		U U;
+		rhoInf 1.1;
+		rho rhoInf;
+		CofR (0 0.947 0.16);
+		log yes;
+		write yes;
+	}
+
+	residuals
+	{
+		type residuals;
+		libs ("libutilityFunctionObjects.so");
+		fields (U p);
+		enabled true;
+		log yes;
+		write yes;
+	}
+
+	coeffs
+	{
+		type forceCoeffs;
+		functionObjectLibs ("libforces.so");
+		patches (body);
+		rhoInf 1.1;
+		rho rhoInf;
+		CofR (0 0.947 0.16);
+		liftDir (0 0 1);
+		dragDir (1 0 0);
+		pitchAxis (0 1 0);
+		magUInf 10;
+		lRef 0.224;
+		Aref 0.54;
+		log yes;
+		write yes;
+	}
+}
+

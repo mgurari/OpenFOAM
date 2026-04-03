@@ -1,0 +1,109 @@
+FoamFile
+{
+	format ascii;
+	class dictionary;
+	object blockMeshDict;
+}
+
+xMin -9;
+xMax 11;
+yMin -9.053;
+yMax 10.947;
+zMin -8;
+zMax 8;
+xMinArc -13;
+xMaxArc 15;
+convertToMeters 1;
+
+vertices
+(
+	($xMin $yMin $zMax)
+	($xMax $yMin $zMax)
+	($xMax $yMin $zMin)
+	($xMin $yMin $zMin)
+	($xMin $yMax $zMax)
+	($xMax $yMax $zMax)
+	($xMax $yMax $zMin)
+	($xMin $yMax $zMin)
+);
+
+blocks
+(
+	hex (0 1 2 3 4 5 6 7)
+	(180 105 105) 
+	simpleGrading (1 1 1)
+);
+
+edges
+(
+	arc 0 3 ($xMinArc $yMin 0)
+	arc 4 7 ($xMinArc $yMax 0)
+	arc 1 2 ($xMaxArc $yMin 0)
+	arc 5 6 ($xMaxArc $yMax 0)
+);
+
+boundary
+(
+	inlet
+	{
+		type patch;
+		faces
+		(
+			(0 3 4 7)
+		);
+	}
+
+	outlet
+	{
+		type patch;
+		inGroups (freestream);
+		faces
+		(
+			(1 2 5 6)
+		);
+	}
+
+	bottom	
+	{
+		type patch;
+		inGroups (freestream);
+		faces
+		(
+			(2 3 6 7)
+		);
+	}
+
+	top
+	{
+		type patch;
+		inGroups (freestream);
+		faces
+		(
+			(0 1 4 5)
+		);
+	}
+
+	right
+	{
+		type patch;
+		inGroups (freestream);
+		faces
+		(
+			(0 1 2 3)
+		);
+	}
+
+	left
+	{
+		type patch;
+		inGroups (freestream);
+		faces
+		(
+			(4 5 6 7)
+		);
+	}
+);
+
+
+
+

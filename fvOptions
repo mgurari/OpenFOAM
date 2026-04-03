@@ -1,0 +1,19 @@
+FoamFile
+{
+	format ascii;
+	class dictionary;
+	object fvOptions;
+}
+
+disk1
+{
+	type actuationDiskSource;
+	selectionMode cellZone;
+	cellZone prop;
+	diskDir (1 0 0);
+	diskArea 0.041;
+	Ct 0.156;
+	Cp 0.214;
+	UInf (10 0 0);
+	upstreamPoint (0.6 0.947 0.17);	
+}

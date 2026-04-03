@@ -1,0 +1,30 @@
+FoamFile
+{
+	format ascii;
+	class dictionary;
+	object topoSetDict;
+}
+
+actions
+(
+	{
+		name prop;
+		type cellSet;
+		action new;
+		source cylinderToCell;
+		sourceInfo
+		{
+			p1 (0.65 0.947 0.16);
+			p2 (0.68 0.947 0.16);
+			radius 0.1143;
+		}
+	}
+
+	{
+		name prop;
+		type cellZoneSet;
+		action new;
+		source setToCellZone;
+		set prop;
+	}
+);
